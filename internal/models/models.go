@@ -37,6 +37,7 @@ type Source struct {
 }
 
 type SourceResponse struct {
+	CreatedAt  string `json:"created_at"`
 	RawMessage string `json:"raw_message"`
 	Source     Source `json:"source"`
 }
