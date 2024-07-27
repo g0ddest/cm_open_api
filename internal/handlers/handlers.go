@@ -58,7 +58,8 @@ func getSource(cfg *config.Config) http.HandlerFunc {
 			return
 		}
 		incidentID := parts[1]
-		key := "water_ms:" + incidentID
+		parts_pre := strings.Split(parts[0], "_")
+		key := parts_pre[0] + "_ms:" + incidentID
 
 		source, err := dynamodb.GetSource(cfg.DynamoDBRegion, cfg.DynamoDBTableName, key)
 		if err != nil {
